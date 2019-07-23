@@ -6,6 +6,8 @@ import router from './routes';
 
 const express = require('express');
 
+const port = process.env.PORT || 8081;
+
 const app = express();
 const uri = 'mongodb://admin:admin1@cluster0-shard-00-00-42ibx.mongodb.net:27017,cluster0-shard-00-01-42ibx.mongodb.net:27017,cluster0-shard-00-02-42ibx.mongodb.net:27017/test?replicaSet=Cluster0-shard-0&ssl=true&authSource=admin';
 const option = {
@@ -25,6 +27,6 @@ mongoose.connection.on('connected', () => {
   console.info('Mongoose connection has been connected.');
 });
 
-app.listen(8081, () => {
-  console.log('Start server at port 8081.');
+app.listen(port, () => {
+  console.log('Start server at port', port);
 });

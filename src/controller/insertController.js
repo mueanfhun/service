@@ -1,5 +1,5 @@
 import movieModel from '../models/schemas/moviesSchema';
-import dataMovies from '../dataMovies.json';
+import dataMovies from '../../datamovies.json';
 
 const insertController = (req, res) => {
   movieModel.insertMany(dataMovies, (err, value) => {
@@ -7,7 +7,7 @@ const insertController = (req, res) => {
       console.log(err);
       res.status(400).json({ message: 'Bad request.' });
     } else {
-      res.status(200).json({ message: 'create success.' });
+      res.status(200).json({ message: value });
     }
   });
 };

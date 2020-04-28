@@ -9,13 +9,14 @@ const express = require('express');
 const port = process.env.PORT || 8081;
 
 const app = express();
-const uri = 'mongodb://admin:admin1@cluster0-shard-00-00-42ibx.mongodb.net:27017,cluster0-shard-00-01-42ibx.mongodb.net:27017,cluster0-shard-00-02-42ibx.mongodb.net:27017/test?replicaSet=Cluster0-shard-0&ssl=true&authSource=admin';
+const uri = 'mongodb+srv://dbUser:dbUser1@cluster0-26ash.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true';
 const option = {
-  user: 'admin',
-  pass: 'admin',
+  user: 'dbUser',
+  pass: 'dbUser1',
   useNewUrlParser: true,
-  dbName: 'movies',
+  dbName: 'User',
 };
+mongoose.set('useCreateIndex', true)
 mongoose.connect(uri, option);
 
 app.use(cors());
